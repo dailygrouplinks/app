@@ -8,10 +8,15 @@
 // hosting already compresses at the edge.
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import netlify from "@netlify/vite-plugin-tanstack-start";
 
 // Vercel sets VERCEL=1 during its builds. Pin nitro's Vercel preset there so the output lands in
 // .vercel/output (Build Output API). Lovable builds ignore this and keep their own target.
 const isVercelBuild = !!process.env["VERCEL"];
+
+// Netlify sets NETLIFY=true during its builds. There, skip nitro and use Netlify's official
+// TanStack Start plugin, which emits dist/client (static files) plus Netlify's server function.
+const isNetlifyBuild = !isVercelBuild && !!process.env["NETLIFY"];
 
 export default defineConfig({
   tanstackStart: {
@@ -22,4 +27,5 @@ export default defineConfig({
     server: { entry: "server" },
   },
   ...(isVercelBuild ? { nitro: { preset: "vercel" } } : {}),
+  ...(isNetlifyBuild ? { nitro: false, plugins: [netlify()] } : {}),
 });
