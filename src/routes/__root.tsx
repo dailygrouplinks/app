@@ -75,18 +75,22 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      <meta name="google-site-verification" content="MKs2j_bc5sHJhmniTC39UMN1eEllS71XxI6nO1REdqU" />
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Daily Group Links" },
-      { name: "description", content: "Discover and join the latest WhatsApp groups worldwide." },
-      { name: "author", content: "Daily Group Links" },
-      { property: "og:title", content: "Daily Group Links" },
-      { property: "og:description", content: "Discover and join the latest WhatsApp groups worldwide." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
+    
+meta: [
+  { charSet: "utf-8" },
+  {
+    name: "google-site-verification",
+    content: "MKs2j_bc5sHJhmniTC39UMN1eEllS71XxI6nO1REdqU",
+  },
+  { name: "viewport", content: "width=device-width, initial-scale=1" },
+  { title: "Daily Group Links" },
+  { name: "description", content: "Discover and join the latest WhatsApp groups worldwide." },
+  { name: "author", content: "Daily Group Links" },
+  { property: "og:title", content: "Daily Group Links" },
+  { property: "og:description", content: "Discover and join the latest WhatsApp groups worldwide." },
+  { property: "og:type", content: "website" },
+  { name: "twitter:card", content: "summary_large_image" },
+],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
