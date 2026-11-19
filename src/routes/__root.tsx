@@ -77,6 +77,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   head: () => ({
     meta: [
       { charSet: "utf-8" },
+      <meta name="google-site-verification" content="MKs2j_bc5sHJhmniTC39UMN1eEllS71XxI6nO1REdqU" />
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Daily Group Links" },
       { name: "description", content: "Discover and join the latest WhatsApp groups worldwide." },
